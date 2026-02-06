@@ -102,54 +102,6 @@ export default function App() {
     return () => window.clearInterval(t)
   }, [])
 
-  const [email, setEmail] = useState('')
-  const [savedMsg, setSavedMsg] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const saveTimer = useRef<number | null>(null)
-
-  async function saveEmail(e: React.FormEvent) {
-    e.preventDefault()
-    const v = email.trim()
-    if (!v) return
-
-    setIsSubmitting(true)
-    
-    try {
-      const response = await fetch('https://api.buttondown.email/v1/subscribers', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Token 9d65cb5c-a82f-4718-9baf-9858e145709a',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: v,
-          tags: ['website'],
-        }),
-      })
-
-      if (response.ok) {
-        setEmail('')
-        setSavedMsg('✓ subscribed')
-      } else if (response.status === 400) {
-        // Likely already subscribed
-        const data = await response.json()
-        if (JSON.stringify(data).toLowerCase().includes('already')) {
-          setSavedMsg('already subscribed')
-        } else {
-          setSavedMsg('error - invalid email')
-        }
-      } else {
-        setSavedMsg('error - try again')
-      }
-    } catch (err) {
-      setSavedMsg('error - no connection')
-    } finally {
-      setIsSubmitting(false)
-      if (saveTimer.current) window.clearTimeout(saveTimer.current)
-      saveTimer.current = window.setTimeout(() => setSavedMsg(null), 3000)
-    }
-  }
-
   const linksTitle = useMemo(() => zalgo('links', 0.22), [])
   const mailTitle = useMemo(() => zalgo('mailing list', 0.18), [])
   const twitchTitle = useMemo(() => zalgo('twitch', 0.2), [])
@@ -295,23 +247,25 @@ export default function App() {
 
         <div className="block">
           <div className="h2">{mailTitle}</div>
-          <form className="mail" onSubmit={saveEmail}>
+          <form
+            className="mail"
+            action="https://buttondown.com/api/emails/embed-subscribe/nullmpeg"
+            method="post"
+          >
             <span className="prefix">{indentPrefix()}</span>
             <label>
               email:{' '}
               <input
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
-                placeholder="email@domain.com"
+                name="email"
                 type="email"
+                placeholder="email@domain.com"
                 autoComplete="email"
-                disabled={isSubmitting}
+                required
               />
             </label>
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'sending...' : 'submit'}
-            </button>
-            {savedMsg && <span className="saved">{savedMsg}</span>}
+            <input type="hidden" name="embed" value="1" />
+            <input type="hidden" name="tag" value="website" />
+            <button type="submit">submit</button>
           </form>
         </div>
 
