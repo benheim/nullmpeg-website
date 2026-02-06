@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, FormEvent } from 'react'
 import './App.css'
 
 type NoiseLine = {
@@ -101,6 +101,34 @@ export default function App() {
     const t = window.setInterval(tick, 1100)
     return () => window.clearInterval(t)
   }, [])
+
+  const [submitStatus, setSubmitStatus] = useState<string | null>(null)
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = e.currentTarget
+    const email = new FormData(form).get('email') as string
+    if (!email?.trim()) return
+
+    try {
+      const response = await fetch('https://buttondown.com/api/emails/embed-subscribe/nullmpeg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
+      })
+
+      if (response.ok) {
+        form.reset()
+        setSubmitStatus('✓ subscribed')
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch {
+      setSubmitStatus('error')
+    }
+
+    setTimeout(() => setSubmitStatus(null), 3000)
+  }
 
   const linksTitle = useMemo(() => zalgo('links', 0.22), [])
   const mailTitle = useMemo(() => zalgo('mailing list', 0.18), [])
@@ -247,11 +275,7 @@ export default function App() {
 
         <div className="block">
           <div className="h2">{mailTitle}</div>
-          <form
-            className="mail"
-            action="https://buttondown.com/api/emails/embed-subscribe/nullmpeg"
-            method="post"
-          >
+          <form className="mail" onSubmit={handleSubmit}>
             <span className="prefix">{indentPrefix()}</span>
             <label>
               email:{' '}
@@ -266,6 +290,7 @@ export default function App() {
             <input type="hidden" name="embed" value="1" />
             <input type="hidden" name="tag" value="website" />
             <button type="submit">submit</button>
+            {submitStatus && <span className="saved">{submitStatus}</span>}
           </form>
         </div>
 
