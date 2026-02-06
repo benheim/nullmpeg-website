@@ -255,8 +255,8 @@ export default function App() {
               scrolling="no"
               style={{
                 width: '100%',
-                maxWidth: '560px',
-                height: '207px',
+                maxWidth: '400px',
+                height: '53px',
                 margin: '0',
                 backgroundColor: 'transparent',
               }}
