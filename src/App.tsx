@@ -271,6 +271,15 @@ export default function App() {
       <main className="content">
         <h1 className="title">{zalgo('null.', 0.25)}</h1>
         <p className="sub">audiovisual performance entity</p>
+        
+        {/* SEO-friendly description - subtle styling */}
+        <section className="about" aria-label="About null">
+          <p className="seoText">
+            Real-time audiovisual performance combining live electronic music with generative visuals. 
+            Experimental multimedia artist exploring TouchDesigner, reactive visual synthesis, and immersive installations. 
+            Live streams, performances, and interactive digital art.
+          </p>
+        </section>
 
         <div className="block">
           <div className="h2">{linksTitle}</div>
