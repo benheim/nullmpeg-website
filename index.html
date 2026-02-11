@@ -2,58 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
     <!-- Primary Meta Tags -->
-    <title>null — Live Audiovisual Performance & Real-Time Generative Art</title>
-    <meta name="title" content="null — Live Audiovisual Performance & Real-Time Generative Art" />
-    <meta name="description" content="null: Real-time audiovisual performance system combining live electronic music, generative visuals, and immersive digital art. Experimental multimedia artist exploring TouchDesigner, real-time synthesis, and interactive installations." />
-    <meta name="keywords" content="audiovisual performance, generative art, real-time visuals, live electronic music, TouchDesigner, multimedia artist, experimental performance, digital art, immersive installation, visual synthesis, VJing, live coding, reactive visuals, null mpeg" />
+    <title>null (Ben Heim) — Real-Time Generative Audiovisual Art & New Media Performance</title>
+    <meta name="title" content="null (Ben Heim) — Real-Time Generative Audiovisual Art & New Media Performance" />
+    <meta
+      name="description"
+      content="null (Ben Heim) creates real-time generative audiovisual art, live visuals, and new media performances blending code, sound, and immersive digital aesthetics."
+    />
+    <meta
+      name="keywords"
+      content="generative art, audiovisual, real-time visuals, new media art, null, nullmpeg, live visuals, audiovisual performance, Ben Heim"
+    />
     <meta name="author" content="null / Ben Heim" />
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://nullmpeg.xyz/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nullmpeg.xyz/" />
-    <meta property="og:title" content="null — Live Audiovisual Performance & Real-Time Generative Art" />
-    <meta property="og:description" content="Real-time audiovisual performance combining live electronic music, generative visuals, and immersive digital art." />
     <meta property="og:site_name" content="null" />
-    
+    <meta property="og:title" content="null (Ben Heim) — Real-Time Generative Audiovisual Art & New Media Performance" />
+    <meta
+      property="og:description"
+      content="Real-time generative audiovisual art and new media performances by null (Ben Heim), blending live code-driven visuals, sound, and digital aesthetics."
+    />
+    <meta property="og:image" content="https://nullmpeg.xyz/og-image.png" />
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://nullmpeg.xyz/" />
-    <meta property="twitter:title" content="null — Live Audiovisual Performance & Real-Time Generative Art" />
-    <meta property="twitter:description" content="Real-time audiovisual performance combining live electronic music, generative visuals, and immersive digital art." />
-    <meta property="twitter:creator" content="@null.mpeg" />
-    
-    <!-- Structured Data for Search Engines -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://nullmpeg.xyz/" />
+    <meta name="twitter:title" content="null (Ben Heim) — Real-Time Generative Audiovisual Art & New Media Performance" />
+    <meta
+      name="twitter:description"
+      content="Real-time generative audiovisual art and new media performances by null (Ben Heim), blending live code-driven visuals, sound, and digital aesthetics."
+    />
+    <meta name="twitter:image" content="https://nullmpeg.xyz/og-image.png" />
+    <meta name="twitter:creator" content="@null.mpeg" />
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "null",
-      "alternateName": "Ben Heim",
-      "url": "https://nullmpeg.xyz",
-      "jobTitle": "Audiovisual Performance Artist",
-      "description": "Real-time audiovisual performance artist specializing in generative visuals, live electronic music, and immersive installations",
-      "sameAs": [
-        "https://www.instagram.com/null.mpeg",
-        "https://www.youtube.com/@Null_mpeg",
-        "https://www.twitch.tv/null_mpeg"
-      ],
-      "knowsAbout": [
-        "Audiovisual Performance",
-        "Generative Art",
-        "Real-Time Visuals",
-        "TouchDesigner",
-        "Live Electronic Music",
-        "Interactive Installations",
-        "Visual Synthesis"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://nullmpeg.xyz/#person",
+            "name": "Ben Heim",
+            "alternateName": "null",
+            "url": "https://nullmpeg.xyz/",
+            "jobTitle": "Generative Audiovisual Artist",
+            "description": "Real-time generative audiovisual artist creating new media performances, live visuals, and immersive digital art.",
+            "sameAs": [
+              "https://www.instagram.com/null.mpeg",
+              "https://www.youtube.com/@Null_mpeg",
+              "https://www.twitch.tv/null_mpeg"
+            ],
+            "knowsAbout": [
+              "Generative art",
+              "Audiovisual performance",
+              "Real-time visuals",
+              "New media art",
+              "TouchDesigner",
+              "Live electronic music"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://nullmpeg.xyz/#organization",
+            "name": "null",
+            "url": "https://nullmpeg.xyz/",
+            "founder": {
+              "@id": "https://nullmpeg.xyz/#person"
+            },
+            "sameAs": [
+              "https://www.instagram.com/null.mpeg",
+              "https://www.youtube.com/@Null_mpeg",
+              "https://www.twitch.tv/null_mpeg"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://nullmpeg.xyz/#website",
+            "url": "https://nullmpeg.xyz/",
+            "name": "nullmpeg",
+            "description": "Official website for null (Ben Heim), featuring real-time generative audiovisual art and new media performances.",
+            "publisher": {
+              "@id": "https://nullmpeg.xyz/#organization"
+            },
+            "inLanguage": "en-US"
+          }
+        ]
+      }
     </script>
-    
-    <!-- Beehiiv Newsletter Embed -->
+
+    <!-- Newsletter Embed -->
     <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
   </head>
   <body>
