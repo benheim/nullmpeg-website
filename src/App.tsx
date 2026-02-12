@@ -51,7 +51,7 @@ export default function App() {
       { label: 'instagram', href: 'https://www.instagram.com/null.mpeg/' },
       { label: 'youtube', href: 'https://www.youtube.com/@Null_mpeg/shorts' },
       { label: 'twitch', href: 'https://www.twitch.tv/null_mpeg' },
-      { label: 'discord', href: 'https://discord.gg/XN3rBUBwnF' },
+      { label: 'discord', href: 'https://discord.gg/6VAUHZbnNM' },
       {
         label: 'spotify',
         href: 'https://open.spotify.com/artist/4Db2WIEyGGR2DBvYQcewA9?si=AAW1RtmmRkK9QMnCiGDheg',
