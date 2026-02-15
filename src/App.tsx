@@ -49,7 +49,7 @@ export default function App() {
   const links = useMemo(
     () => [
       { label: 'instagram', href: 'https://www.instagram.com/null.mpeg/' },
-      { label: 'youtube', href: 'https://www.youtube.com/@Null_mpeg/shorts' },
+      { label: 'youtube', href: 'https://www.youtube.com/@null_mpeg' },
       { label: 'twitch', href: 'https://www.twitch.tv/null_mpeg' },
       { label: 'discord', href: 'https://discord.gg/6VAUHZbnNM' },
       {
