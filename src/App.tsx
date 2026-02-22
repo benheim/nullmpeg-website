@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 type NoiseLine = {
@@ -181,6 +182,7 @@ export default function App() {
   }, [])
 
   return (
+    <>
     <div className="y2k">
       {/* noise */}
       <div className="noiseLayer" aria-hidden>
@@ -283,5 +285,7 @@ export default function App() {
         <pre>{asciiLogo}</pre>
       </div>
     </div>
+    <Analytics />
+    </>
   )
 }
