@@ -105,8 +105,16 @@ export default function App() {
   }, [])
 
   const linksTitle = useMemo(() => zalgo('links', 0.22), [])
+  const instrumentsTitle = useMemo(() => zalgo('null instruments', 0.25), [])
   const mailTitle = useMemo(() => zalgo('mailing list', 0.18), [])
   const twitchTitle = useMemo(() => zalgo('twitch', 0.2), [])
+
+  const drops = useMemo(() => [
+    { id: '01', name: 'Ritualizer', type: 'web app', desc: 'Audio-reactive visual rites in your browser. Upload a track, choose a ritual, export the clip.' },
+    { id: '02', name: 'Null Room 01', type: 'web app', desc: 'Enter the room. 3 scenes. Mic or file input. A collectible world.' },
+    { id: '03', name: 'Sigil Engine', type: 'steam', desc: 'AV micro-game. 20 minutes of audio-reactive gameplay. A toy from the void.' },
+    { id: '04', name: 'Null Rite', type: 'iphone', desc: 'The ritual in your pocket. Mic-reactive visuals. Export to camera roll.' },
+  ], [])
 
   // ASCII logo art (zalgoified) - BIG version with large ø - ANIMATED
   const baseAsciiLines = useMemo(() => [
@@ -246,6 +254,24 @@ export default function App() {
               </a>
             </div>
           ))}
+        </div>
+
+        <div className="block instruments">
+          <div className="h2">{instrumentsTitle}</div>
+          <p className="instrumentsSub">portable rites, not software. your music, my ritual language.</p>
+          <div className="dropGrid">
+            {drops.map((d) => (
+              <div key={d.id} className="dropCard">
+                <div className="dropHeader">
+                  <span className="dropId">DROP {d.id}</span>
+                  <span className="dropType">{d.type}</span>
+                </div>
+                <div className="dropName">{zalgo(d.name, 0.18)}</div>
+                <p className="dropDesc">{d.desc}</p>
+                <div className="dropStatus">coming soon</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="block">

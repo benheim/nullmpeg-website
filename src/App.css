@@ -231,6 +231,89 @@ a:hover {
   }
 }
 
+/* Null Instruments */
+.instruments {
+  margin: 28px 0;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.instrumentsSub {
+  margin: 0 0 16px;
+  font-size: 13px;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.dropGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 600px;
+}
+
+@media (max-width: 600px) {
+  .dropGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dropCard {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.dropCard:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
+}
+
+.dropHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dropId {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  font-family: "Courier New", monospace;
+}
+
+.dropType {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+}
+
+.dropName {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.dropDesc {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.65;
+}
+
+.dropStatus {
+  font-size: 10px;
+  opacity: 0.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+}
+
 .embedWrap {
   border: 1px solid rgba(255, 255, 255, 0.7);
   padding: 6px;
